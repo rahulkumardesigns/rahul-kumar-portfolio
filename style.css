@@ -149,6 +149,66 @@ section{padding:100px 0}
 .modal-body .work-tools span{font-size:.8rem;padding:6px 14px}
 .modal-body .btn{margin-top:8px}
 
+/* ===== CLIENTS ===== */
+.clients-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-bottom:60px
+}
+.client-logo-card{
+  background:var(--bg2);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:var(--radius);
+  padding:32px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:120px;
+  transition:var(--transition);
+  position:relative;
+  overflow:hidden
+}
+.client-logo-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(102,126,234,.05),rgba(118,75,162,.05));
+  opacity:0;
+  transition:opacity var(--transition)
+}
+.client-logo-card:hover{
+  border-color:rgba(102,126,234,.25);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,0,0,.3)
+}
+.client-logo-card:hover::before{opacity:1}
+.client-logo-card img{
+  max-height:48px;
+  max-width:140px;
+  object-fit:contain;
+  filter:grayscale(1) brightness(.7);
+  transition:filter var(--transition)
+}
+.client-logo-card:hover img{
+  filter:grayscale(0) brightness(1)
+}
+.client-fallback{
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  font-weight:700;
+  color:var(--text3);
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:color var(--transition)
+}
+.client-logo-card:hover .client-fallback{color:var(--text)}
+
 /* ===== CLIENTS MARQUEE ===== */
 #clients{padding:80px 0;overflow:hidden}
 .section-header.center{margin-bottom:40px}
@@ -240,6 +300,9 @@ footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.05)}
   .work-item.large .work-thumb{aspect-ratio:4/3}
   .work-item.wide .work-thumb{aspect-ratio:4/3}
   .skills-grid{grid-template-columns:1fr}
+  .clients-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .client-logo-card{padding:20px 16px;min-height:90px}
+  .client-logo-card img{max-height:36px;max-width:110px}
   .contact-grid{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;gap:16px;text-align:center}
 }
